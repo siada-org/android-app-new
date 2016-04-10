@@ -3,34 +3,40 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/m_profile_s"
+            android:title="@string/menu_item_profile" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:id="@+id/nav_friends"
+            android:icon="@drawable/m_friends_s"
+            android:title="@string/menu_item_friends" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:id="@+id/nav_pm"
+            android:icon="@drawable/m_pm_s"
+            android:title="@string/menu_item_pm" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/nav_chat"
+            android:icon="@drawable/m_chat_s"
+            android:title="@string/menu_item_chat" />
+        <item
+            android:id="@+id/nav_events"
+            android:icon="@drawable/m_events_s"
+            android:title="@string/menu_item_events" />
+        <item
+            android:id="@+id/nav_works"
+            android:icon="@drawable/m_help_s"
+            android:title="@string/menu_item_works" />
+        <item
+            android:id="@+id/nav_map"
+            android:icon="@drawable/m_options_s"
+            android:title="@string/menu_item_map" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/m_options_s"
+            android:title="@string/menu_item_settings" />
+        <item
+            android:id="@+id/nav_search"
+            android:icon="@drawable/m_search_s"
+            android:title="@string/menu_item_search" />
     </group>
-
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
-        </menu>
-    </item>
-
 </menu>
