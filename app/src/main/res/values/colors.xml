@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--Основной цвет приложения-->
     <color name="colorPrimary">#3F51B5</color>
+
+    <!--Оттенки основного цвета приложения-->
+    <!--Темный оттенок-->
+    <color name="colorPrimary_dark">#2b387c</color>
+    <!--Светлый оттенок-->
+    <color name="colorPrimary_light">#7280ce</color>
+    <!--/Оттенки основного цвета приложения-->
+
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 </resources>

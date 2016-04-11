@@ -19,5 +19,11 @@
     <string name="menu_item_search">Поиск</string>
     <!--/Строки меню-->
 
+    <!--Дефолные значения-->
+    <!--Имя пользователя-->
+    <string name="menu_header_username">Имя пользователя</string>
+    <!--Статус пользователя-->
+    <string name="menu_header_user_status">Статус пользователя</string>
+    <!--/Дефолтные значения-->
 
 </resources>

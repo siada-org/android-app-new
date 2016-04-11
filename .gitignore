@@ -26,6 +26,9 @@ local.properties
 .idea/scopes/scope_settings.xml
 .idea/vcs.xml
 *.iml
+.idea/gradle.xml
+build/intermediates/dex-cache/cache.xml
+/build/intermediates/*
 
 # OS-specific files
 .DS_Store
@@ -35,4 +38,3 @@ local.properties
 .Trashes
 ehthumbs.db
 Thumbs.db
-.idea/gradle.xml
