@@ -27,7 +27,6 @@ local.properties
 .idea/vcs.xml
 *.iml
 .idea/gradle.xml
-build/intermediates/dex-cache/cache.xml
 /build/intermediates/*
 
 # OS-specific files

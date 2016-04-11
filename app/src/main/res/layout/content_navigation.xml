@@ -12,4 +12,10 @@
     tools:context="ru.student_app.student.NavigationActivity"
     tools:showIn="@layout/app_bar_navigation">
 
+    <TextView
+        android:id="@+id/testText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/menu_header_user_status" />
+
 </RelativeLayout>

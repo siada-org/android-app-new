@@ -11,8 +11,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +34,8 @@ public class NavigationActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
     }
 
     @Override
@@ -66,7 +74,7 @@ public class NavigationActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-
+        TextView text = (TextView) findViewById(R.id.testText);
         int id = item.getItemId();
 
         if (id == R.id.nav_profile) {
@@ -81,16 +89,26 @@ public class NavigationActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_works) {
 
-        }else if (id == R.id.nav_map) {
+        } else if (id == R.id.nav_map) {
 
-        }else if (id == R.id.nav_settings) {
+        } else if (id == R.id.nav_settings) {
 
-        }else if (id == R.id.nav_search) {
+        } else if (id == R.id.nav_search) {
 
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
     }
 }
