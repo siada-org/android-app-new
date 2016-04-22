@@ -1,15 +1,19 @@
 package ru.student_app.student;
 
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+//Импорт класа httpRequest
+import ru.student_app.student.HttpRequest;
 
 
 public class NavigationActivity extends AppCompatActivity
@@ -22,6 +26,9 @@ public class NavigationActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
         setContentView(R.layout.activity_navigation);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -78,7 +85,8 @@ public class NavigationActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_profile) {
-
+            int response = HttpRequest.get("http://student-app.ru/map-res.php?lat=666&lng=777").code();
+            Log.i("REQUEST", String.valueOf(response));
         } else if (id == R.id.nav_friends) {
 
         } else if (id == R.id.nav_pm) {
