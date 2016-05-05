@@ -11,8 +11,15 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 //Импорт класа httpRequest
+import com.squareup.picasso.Picasso;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import ru.student_app.student.HttpRequest;
 
 
@@ -36,13 +43,42 @@ public class NavigationActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        assert drawer != null;
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        assert navigationView != null;
         navigationView.setNavigationItemSelectedListener(this);
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
+
+        //TODO: Сделать оттдельный файл запроса для навигатора
+        String response = HttpRequest.get("http://student-app.ru/resources/helpers/scripts/json/recive_user_info.php").body();
+
+
+        try {
+            JSONObject jObject = null;
+            jObject = new JSONObject(response);
+
+            TextView NavHeaderUsername = (TextView) findViewById(R.id.menu_header_userName);
+            ImageView NavHeaderUserImage = (ImageView) findViewById(R.id.menu_header_userImage);
+
+            String UPhotoPath = jObject.getString("PERSONAL_PHOTO");
+            String UName = jObject.getString("NAME");
+            String UNickname = jObject.getString("TITLE");
+            String ULname = jObject.getString("LAST_NAME");
+
+            assert NavHeaderUsername != null;
+            NavHeaderUsername.setText(UName+" "+UNickname+" "+ULname);
+
+            Picasso.with(this)
+                    .load("http://student-app.ru"+UPhotoPath)
+                    .placeholder(R.drawable.logo_s)
+                    .error(R.drawable.logo_s)
+                    .into(NavHeaderUserImage);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
@@ -81,12 +117,37 @@ public class NavigationActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        TextView text = (TextView) findViewById(R.id.testText);
         int id = item.getItemId();
 
         if (id == R.id.nav_profile) {
-            int response = HttpRequest.get("http://student-app.ru/map-res.php?lat=666&lng=777").code();
-            Log.i("REQUEST", String.valueOf(response));
+
+            TextView textName = (TextView) findViewById(R.id.username);
+            TextView textLastName = (TextView) findViewById(R.id.user_last_name);
+            TextView textFirstName = (TextView) findViewById(R.id.user_first_name);
+
+            String response = HttpRequest.get("http://student-app.ru/resources/helpers/scripts/json/recive_user_info.php").body();
+
+            try {
+                ImageView photoPlace = (ImageView) findViewById(R.id.photoPlace);
+
+                JSONObject jObject = new JSONObject(response);
+
+                String UPhotoPath = jObject.getString("PERSONAL_PHOTO");
+                String Uname = jObject.getString("NAME");
+                String ULname = jObject.getString("LAST_NAME");
+
+                assert textName != null;
+                assert textLastName != null;
+
+                textLastName.setText(ULname);
+                textName.setText(Uname);
+
+                Picasso.with(this).load("http://student-app.ru"+UPhotoPath).into(photoPlace);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
         } else if (id == R.id.nav_friends) {
 
         } else if (id == R.id.nav_pm) {

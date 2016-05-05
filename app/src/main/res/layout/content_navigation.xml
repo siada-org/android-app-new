@@ -12,10 +12,31 @@
     tools:context="ru.student_app.student.NavigationActivity"
     tools:showIn="@layout/app_bar_navigation">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:id="@+id/photoPlace"
+        android:contentDescription="" />
+
     <TextView
-        android:id="@+id/testText"
+        android:id="@+id/username"
+        android:paddingTop="300dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/menu_header_user_status" />
+        android:text="@string/user_name" />
+
+    <TextView
+        android:id="@+id/user_last_name"
+        android:paddingTop="320dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/user_last_name" />
+
+    <TextView
+        android:id="@+id/user_first_name"
+        android:paddingTop="340dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/user_first_name" />
 
 </RelativeLayout>
